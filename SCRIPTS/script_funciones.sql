@@ -1,4 +1,10 @@
--- SUMA ENTRE DOS NUMEROS
+-- Función SUMAR ORO A UN PERSONAJE
+
+-- Descripción:
+-- Esta función tiene como objetivo sumar una cantidad específica de oro a la cantidad de oro actual de un personaje en el juego.
+
+-- Objetivo:
+-- Proporcionar una función que permita aumentar la cantidad de oro de un personaje en el juego.
 
 DELIMITER //
 
@@ -14,15 +20,19 @@ END;
 
 DELIMITER ;
 
--- funcion sumar
--- SELECT Sumar(5, 7);
 SELECT character.id, character.name, Sumar(character.gold, 100) AS gold_total
 FROM sql_coder_rpg.character;
 
 
 
 
--- CUADRADO
+-- Función ELEVAR AL CUADRADO LA VIDA DE UN PERSONAJE
+
+-- Descripción:
+-- Esta función tiene como objetivo calcular el cuadrado del valor de vida de un personaje en el juego.
+
+-- Objetivo:
+-- Proporcionar una función que calcule el cuadrado de la vida de un personaje en el juego.
 
 DELIMITER //
 
@@ -37,7 +47,6 @@ END;
 
 DELIMITER ;
 
--- SELECT Cuadrado(4); -- Esto devolverá 16
 SELECT character_statics.id, character_statics.life, Cuadrado(character_statics.life) AS life_squared
 FROM sql_coder_rpg.character_statics;
 
@@ -45,7 +54,13 @@ FROM sql_coder_rpg.character_statics;
 
 
 
--- PROMEDIO 3 NUMEROS
+-- Función OBTENER EL PROMEDIO DE TIEMPO JUGADO DE UN PERSONAJE
+
+-- Descripción:
+-- Esta función tiene como objetivo calcular el promedio del tiempo jugado por un personaje en el juego. Toma tres valores como entrada y calcula el promedio de tiempo jugado.
+
+-- Objetivo:
+-- Proporcionar una función que calcule el promedio del tiempo jugado por un personaje en el juego
 
 DELIMITER //
 
@@ -60,7 +75,6 @@ END;
 
 DELIMITER ;
 
--- SELECT Promedio(10, 20, 30); -- Esto devolverá 20.00
 SELECT AVG(Promedio(character.played_time, 10, 20)) AS avg_played_time
 FROM sql_coder_rpg.character;
 
@@ -69,7 +83,13 @@ FROM sql_coder_rpg.character;
 
 
 
--- CONCATENAR CADENAS
+-- Función CONCATENAR EL NOMBRE DE UN PERSONAJE CON EL NOMBRE DE SU CUENTA
+
+-- Descripción:
+-- Esta función tiene como objetivo concatenar el nombre de un personaje con el nombre de su cuenta de usuario en el juego.
+
+-- Objetivo:
+-- Proporcionar una función que combine el nombre de un personaje con el nombre de su cuenta de usuario.
 
 DELIMITER //
 
@@ -84,7 +104,6 @@ END;
 
 DELIMITER ;
 
--- SELECT ConcatenarCadenas('Hola', 'Mundo'); -- Esto devolverá 'Hola Mundo'
 SELECT ConcatenarCadenas(character.name, account.username) AS full_name
 FROM sql_coder_rpg.character
 JOIN sql_coder_rpg.account ON character.account = account.id;
@@ -93,7 +112,13 @@ JOIN sql_coder_rpg.account ON character.account = account.id;
 
 
 
--- LONGITUD DE CADENAS
+-- Función OBTENER LA LONGITUD DEL NOMBRE DE UN PERSONAJE
+
+-- Descripción:
+-- Esta función tiene como objetivo calcular la longitud (número de caracteres) del nombre de un personaje en el juego.
+
+-- Objetivo:
+-- Proporcionar una función que determine la longitud del nombre de un personaje en el juego.
 
 DELIMITER //
 
@@ -108,8 +133,6 @@ END;
 
 DELIMITER ;
 
-
--- SELECT LongitudCadena('Ejemplo'); -- Esto devolverá 7
 SELECT character.id, character.name, LongitudCadena(character.name) AS name_length
 FROM sql_coder_rpg.character;
 
